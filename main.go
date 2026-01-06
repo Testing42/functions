@@ -4,7 +4,12 @@ import "fmt"
 
 /*
 a function can be a parameter for another function
+
+for better organization its best to make a custom type and then use that instead of the fucntion
+directly in the other function. this makes things clearer and less messy
 */
+
+type transformFn func(int) int
 
 func main() {
 	numbers := []int{1, 2, 3, 4}
@@ -19,7 +24,7 @@ func main() {
 TRANSFORM PARAMETER BELOW functions are first class functions
 functions are just vaules in go and can be used
 */
-func transformNumbers(numbers *[]int, transform func(int) int) []int {
+func transformNumbers(numbers *[]int, transform transformFn) []int {
 	dNumbers := []int{}
 
 	for _, val := range *numbers {
