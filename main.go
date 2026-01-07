@@ -37,13 +37,17 @@ functions are just vaules in go and can be used
 
 to make a variadiac value which allows for calling a function with any number of parameters like
 
-func transformNumbers(numbers ...int) int {
+func sumup(numbers ...int) int {
 
 That only works if you pass a list of parameters which
 isn't setup to be an array of something
 like
 
 sum := sumup(1, 10,22, 43, -95)
+
+you can make an array into a slice using
+anothersum := sumup(numbers...)
+
 */
 func transformNumbers(numbers *[]int, transform transformFn) []int {
 	dNumbers := []int{}
